@@ -1,0 +1,246 @@
+CONVERSATION 0 
+SEEKER: <s> hi i am looking for a movie like super troopers </s>
+GROUND TRUTH: <s> you should watch police academy </s>
+GENERATED T=1: <s> what kind of movies do you like ? </s>
+SEEKER: <s> is that a great one ? i have never seen it . i have seen american pie 
+ i mean american pie </s>
+GROUND TRUTH: <s> yes police academy is very funny and so is police academy 2 : their first assignment </s>
+GENERATED T=1: <s> i have not seen that one </s>
+SEEKER: <s> it sounds like i need to check them out </s>
+GROUND TRUTH: <s> yes you will enjoy them </s>
+GENERATED T=1: <s> have you seen it ? </s>
+SEEKER: <s> i appreciate your time . i will need to check those out . are there any others you would recommend ? </s>
+GROUND TRUTH: <s> yes lethal weapon </s>
+GENERATED T=1: <s> no problem have a good day </s>
+SEEKER: <s> thank you i will watch that too </s>
+GROUND TRUTH: <s> and also beverly hills cop </s>
+GENERATED T=1: <s> you are welcome </s>
+SEEKER: <s> thanks for the suggestions . </s>
+GROUND TRUTH: <s> you are welcome 
+ and also 48 hrs . </s>
+GENERATED T=1: <s> bye </s>
+SEEKER: <s> thanks goodbye </s>
+
+CONVERSATION 1 
+GROUND TRUTH: <s> hello ! </s>
+GENERATED T=1: <s> hello </s>
+SEEKER: <s> hello ! </s>
+GROUND TRUTH: <s> what kind of movies do you like ? </s>
+GENERATED T=1: <s> what kind of movies do you like ? </s>
+SEEKER: <s> i am looking for a movie recommendation . when i was younger i really enjoyed the a nightmare on elm street </s>
+GROUND TRUTH: <s> oh , you like scary movies ? 
+ i recently watched happy death day </s>
+GENERATED T=1: <s> have you seen as good as it gets ? </s>
+SEEKER: <s> i also enjoyed watching the last house on the left </s>
+GROUND TRUTH: <s> it was really good for a new & quot ; scary movie & quot ; </s>
+GENERATED T=1: <s> i have n't seen that one . </s>
+SEEKER: <s> i do enjoy some of the newer horror movies that i have seen as well . </s>
+GROUND TRUTH: <s> i heard that a quiet place is good . it is still in theaters though . </s>
+GENERATED T=1: <s> did you like it ? </s>
+SEEKER: <s> i really liked the movie annabelle </s>
+GROUND TRUTH: <s> me , too ! 
+ it was really creepy , but i thought it was good ! </s>
+GENERATED T=1: <s> did you like it ? </s>
+SEEKER: <s> or the forest i saw while in theaters , this was a very good movie . it had me on the edge of my seat for the whole show . </s>
+GROUND TRUTH: <s> i 'm not sure if i saw that one , i 'll have to check into it . sounds familiar , but not sure . thank you for your suggestions ! </s>
+GENERATED T=1: <s> did you like it ? </s>
+SEEKER: <s> are there any comedies that you would suggest ? </s>
+GROUND TRUTH: <s> sure ! i like comedies a lot . i like movies like hot tub time machine and super troopers , but i also like identity thief and the heat . </s>
+GENERATED T=1: <s> no problem . </s>
+SEEKER: <s> wonderful ! thank you so much i think i am ready for movie night now . </s>
+GROUND TRUTH: <s> no problem ! thank you , too ! : ) </s>
+GENERATED T=1: <s> you too ! </s>
+
+CONVERSATION 2 
+GROUND TRUTH: <s> tell me what would you like to watch ? </s>
+GENERATED T=1: <s> hello </s>
+SEEKER: <s> easy a </s>
+GROUND TRUTH: <s> did you watch avengers : infinity war ? 
+ or the black panthers : <unk> of the revolution ? 
+ i really liked it </s>
+GENERATED T=1: <s> what kind of movies do you like ? </s>
+SEEKER: <s> no , i think i would like to watch easy a 
+ it 's funny </s>
+GROUND TRUTH: <s> but you already know what you want to watch 
+ you should tell me what kind of movies you like 
+ did you watch click ? 
+ do you like scary movies ? 
+ did you watch it ? </s>
+GENERATED T=1: <s> did you like it ? </s>
+SEEKER: <s> yes i like adam sandler . the waterboy is another good movie by him 
+ i did not see the movie it </s>
+GROUND TRUTH: <s> yes i think so 
+ i hope i have helped 
+ good bye </s>
+GENERATED T=1: <s> i have n't seen that one </s>
+
+CONVERSATION 3 
+SEEKER: <s> i would like to watch any movie 
+ tell me any movie 
+ like avengers : infinity war </s>
+GROUND TRUTH: <s> have you seen the avengers </s>
+GENERATED T=1: <s> hi ! what kind of movies do you like ? </s>
+SEEKER: <s> i really enjoyed that one 
+ yes and i liked it 
+ which another one would you recommend me ? </s>
+GROUND TRUTH: <s> do you like scary 
+ have you seen it </s>
+GENERATED T=1: <s> how about beauty and the beast </s>
+SEEKER: <s> i watched iron man 2 and a liked it </s>
+GROUND TRUTH: <s> or cabin by the lake </s>
+GENERATED T=1: <s> did you like it ? </s>
+SEEKER: <s> no , i have not seen it 
+ but i 'll try 
+ thank you for helping me 
+ good bye </s>
+GROUND TRUTH: <s> if you like superhero ant-man is also a very good one 
+ goodbye </s>
+GENERATED T=1: <s> bye </s>
+
+CONVERSATION 4 
+GROUND TRUTH: <s> what kind of movies do you like 
+ have you seen avengers : infinity war ? 
+ or spider-man </s>
+GENERATED T=1: <s> hello </s>
+SEEKER: <s> yes and i liked them 
+ those are awesome 
+ i like that kind of movies </s>
+GROUND TRUTH: <s> x-men : first class </s>
+GENERATED T=1: <s> what about dumb and dumber </s>
+SEEKER: <s> i also watched iron man </s>
+GROUND TRUTH: <s> those are good movies as well </s>
+GENERATED T=1: <s> have you seen logan ? </s>
+SEEKER: <s> no , i have not watched that one 
+ i think i will try that one </s>
+GROUND TRUTH: <s> x-men : the last stand was another good xmen movie 
+ okay thanks ! </s>
+GENERATED T=1: <s> its a great movie ! </s>
+SEEKER: <s> oooh , so there are many 
+ thanks 
+ good bye </s>
+
+CONVERSATION 5 
+GROUND TRUTH: <s> tell me what kind of movies do you like ? </s>
+GENERATED T=1: <s> hello </s>
+SEEKER: <s> i like scary movies </s>
+GROUND TRUTH: <s> did you watch avengers : infinity war </s>
+GENERATED T=1: <s> what kind of movies do you like ? </s>
+SEEKER: <s> i did not but i want to </s>
+GROUND TRUTH: <s> so , did you watch it ? </s>
+GENERATED T=1: <s> have you seen it ? </s>
+SEEKER: <s> have you seen it </s>
+GROUND TRUTH: <s> and it ? </s>
+GENERATED T=1: <s> i have not . </s>
+SEEKER: <s> no but i like the old one 
+ yes i like that <unk> </s>
+GROUND TRUTH: <s> yes i have , that 's why i told you </s>
+GENERATED T=1: <s> did you like it ? </s>
+SEEKER: <s> yes i like that version </s>
+GROUND TRUTH: <s> and did you watch the exorcist ? 
+ that is very scary </s>
+GENERATED T=1: <s> did you like it ? </s>
+SEEKER: <s> it is very scary 
+ ank you for the suggestions 
+ goodbye </s>
+GROUND TRUTH: <s> i hope i have helped 
+ bye 
+ good bye </s>
+GENERATED T=1: <s> bye </s>
+
+CONVERSATION 6 
+SEEKER: <s> i like to watch scary movies </s>
+GROUND TRUTH: <s> tell me what kind of movie do you like ? 
+ did you watch it ? 
+ and it ? </s>
+GENERATED T=1: <s> what kind of movies do you like ? </s>
+SEEKER: <s> i have seen the old one </s>
+GROUND TRUTH: <s> did you watch the exorcist ? </s>
+GENERATED T=1: <s> did you like it ? </s>
+SEEKER: <s> i have not seen the new one 
+ i do like the <unk> </s>
+GROUND TRUTH: <s> ok , you should watch the new one 
+ even though i would rather the old one 
+ and did you watch the last exorcism ? 
+ i hope i have helped </s>
+GENERATED T=1: <s> i have n't seen that one . </s>
+SEEKER: <s> no i have not but it sounds scary ! 
+ thank you for the suggestions ! </s>
+GROUND TRUTH: <s> you should try them 
+ your welcome 
+ good bye </s>
+GENERATED T=1: <s> you too ! </s>
+SEEKER: <s> bye ! </s>
+
+CONVERSATION 7 
+GROUND TRUTH: <s> tell me what kind of movies do you like ? </s>
+GENERATED T=1: <s> hello </s>
+SEEKER: <s> i love to watch funny movies </s>
+GROUND TRUTH: <s> did you watch click ? </s>
+GENERATED T=1: <s> have you seen dumb and dumber ? </s>
+SEEKER: <s> yes , i love adam sandler </s>
+GROUND TRUTH: <s> and the mask ? 
+ yes he is very funny 
+ do you not like scary movies ? </s>
+GENERATED T=1: <s> did you like it ? </s>
+SEEKER: <s> just watched the mask last night ! there is a new one son of the mask 
+ i like some scary movie </s>
+GROUND TRUTH: <s> and did you watch you do n't mess with the zohan ? 
+ hahaha you enjoy those kind of movies ! ! 
+ i hope i have helped </s>
+GENERATED T=1: <s> i have n't seen that one . </s>
+SEEKER: <s> that one is the best ! thanks for the help 
+ goodbye ! </s>
+GROUND TRUTH: <s> good bye </s>
+GENERATED T=1: <s> bye ! </s>
+
+CONVERSATION 8 
+GROUND TRUTH: <s> hello 
+ me what kind of movies do you like ? </s>
+GENERATED T=1: <s> hello </s>
+SEEKER: <s> i like all movies , what are your suggestions ? </s>
+GROUND TRUTH: <s> did you watch avengers : infinity war ? </s>
+GENERATED T=1: <s> what kind of movies do you like ? </s>
+SEEKER: <s> no heard it is very good </s>
+GROUND TRUTH: <s> i can tell you to watch click 
+ yes it is really good </s>
+GENERATED T=1: <s> have you seen it ? </s>
+SEEKER: <s> i love adam sandler movies </s>
+GROUND TRUTH: <s> you can watch too if you want to the exorcist 
+ but that is a scary one 
+ i would recommend you iron man </s>
+GENERATED T=1: <s> did you like it ? </s>
+SEEKER: <s> sounds scary but will have to check it out ! 
+ these are great suggestions </s>
+GROUND TRUTH: <s> and also spider-man 3 </s>
+GENERATED T=1: <s> you are welcome </s>
+SEEKER: <s> thank you ! </s>
+GROUND TRUTH: <s> yes 
+ i hope i have helped 
+ good bye 
+ enjoy them </s>
+GENERATED T=1: <s> you too </s>
+SEEKER: <s> goodbye </s>
+
+CONVERSATION 9 
+GROUND TRUTH: <s> what kind of movies do you like ? </s>
+GENERATED T=1: <s> hello </s>
+SEEKER: <s> hello 
+ i open to any movie </s>
+GROUND TRUTH: <s> have you seen avengers : infinity war </s>
+GENERATED T=1: <s> what kind of movies do you like ? </s>
+SEEKER: <s> yes i liked that one 
+ actually i want to watch it again 
+ i also watch iron man </s>
+GROUND TRUTH: <s> or the spider-man : homecoming was a <unk> one ot </s>
+GENERATED T=1: <s> what about black panther ? </s>
+SEEKER: <s> i watched spider-man 3 the old one 
+ i have not seen the new one </s>
+GROUND TRUTH: <s> if you like scary movies it is pretty scary </s>
+GENERATED T=1: <s> did you like it ? </s>
+SEEKER: <s> but i will try 
+ yeah ! 
+ i liked that one too 
+ thank you for helping me 
+ i will have a good evening 
+ good bye </s>
+

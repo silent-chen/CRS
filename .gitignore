@@ -7,3 +7,10 @@
 # datasets
 redial
 movielens
+
+# trained model and embeddings 	
+models/GenSen/
+models/autorec/
+models/embeddings/
+models/recommender/
+models/sentiment_analysis/
