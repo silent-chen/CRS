@@ -85,7 +85,7 @@ class MlBatchLoader(object):
         # self.id2movies = load_movies(self.movie_path)
         # self.id2index = {id: i for (i, id) in enumerate(self.id2movies)}
         self.id2index = load_movies_merged(self.movie_path)
-        self.n_movies = np.max(self.id2index.values()) + 1
+        self.n_movies = np.max(list(self.id2index.values())) + 1
         print("Loading movie ratings from {}".format(self.data_path))
         self.ratings = {subset: load_ratings(path, as_array=False)
                         for subset, path in self.data_path.items()}
@@ -98,7 +98,7 @@ class MlBatchLoader(object):
         if ratings01 is None:
             ratings01 = self.ratings01
         # list of users for the batch
-        batch_data = self.keys[subset][self.batch_index[subset] * self.batch_size:
+        batch_data = list(self.keys[subset])[self.batch_index[subset] * self.batch_size:
                                        (self.batch_index[subset] + 1) * self.batch_size]
 
         self.batch_index[subset] = (self.batch_index[subset] + 1) % self.n_batches[subset]

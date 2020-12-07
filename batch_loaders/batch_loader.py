@@ -9,6 +9,7 @@ from tqdm import tqdm
 import pickle
 import random
 from collections import Counter
+#from importlib import reload
 
 import torch
 from torch.autograd import Variable
@@ -17,8 +18,8 @@ from utils import tokenize
 
 import sys
 
-reload(sys)
-sys.setdefaultencoding('utf8')
+#reload(sys)
+#sys.setdefaultencoding('utf8')
 
 
 def load_data(path):
@@ -115,7 +116,7 @@ class DialogueBatchLoader(object):
         # So db2id is a dictionary mapping ReDial movie Ids to global movieIds
         self.id2name, self.db2id = get_movies(self.movie_path)
         self.db2name = {db: self.id2name[id] for db, id in self.db2id.items()}
-        self.n_movies = len(self.db2id.values())  # number of movies mentioned in ReDial
+        self.n_movies = len(list(self.db2id.values()))  # number of movies mentioned in ReDial
         print('{} movies'.format(self.n_movies))
         # load data
         print("Loading and processing data")
@@ -126,10 +127,10 @@ class DialogueBatchLoader(object):
             self.form_data = {key: self.extract_form_data(val) for key, val in self.conversation_data.items()}
         if "ratings" in self.sources:
             self.ratings_data = {key: self.extract_ratings_data(val) for key, val in self.conversation_data.items()}
-            train_mean = np.mean([np.mean(conv.values()) for conv in self.ratings_data["train"]])
+            train_mean = np.mean([np.mean(list(conv.values())) for conv in self.ratings_data["train"]])
             print("Mean training rating ", train_mean)
             print("validation MSE made by mean estimator: {}".format(
-                np.mean([np.mean((np.array(conv.values()) - train_mean) ** 2)
+                np.mean([np.mean((np.array(list(conv.values())) - train_mean) ** 2)
                          for conv in self.ratings_data["valid"]])))
         # load vocabulary
         self.train_vocabulary = self._get_vocabulary()
@@ -201,7 +202,9 @@ class DialogueBatchLoader(object):
         """
         if os.path.isfile(self.vocab_path):
             print("Loading vocabulary from {}".format(self.vocab_path))
-            return pickle.load(open(self.vocab_path))
+            f = open(self.vocab_path, 'rb')
+            print(f)
+            return pickle.load(f)
         print("Loading vocabulary from data")
         counter = Counter()
         # get vocabulary from dialogues
@@ -224,7 +227,7 @@ class DialogueBatchLoader(object):
             sum([counter[x] for x in counter])
         ))
         vocab += ['<s>', '</s>', '<pad>', '<unk>', '\n']
-        with open(self.vocab_path, 'w') as f:
+        with open(self.vocab_path, 'wb') as f:
             pickle.dump(vocab, f)
         print("Saved vocabulary in {}".format(self.vocab_path))
         return vocab

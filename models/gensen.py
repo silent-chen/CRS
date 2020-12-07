@@ -36,7 +36,8 @@ class Encoder(nn.Module):
 
     def set_pretrained_embeddings(self, embedding_matrix):
         """Set embedding weights."""
-        self.src_embedding.weight.data.set_(torch.from_numpy(embedding_matrix))
+        with torch.no_grad():
+            self.src_embedding.weight.set_(torch.from_numpy(embedding_matrix))
 
     def forward(self, input, lengths, return_all=False, pool='last'):
         """Propogate input through the encoder."""
@@ -85,14 +86,14 @@ class GenSen(nn.Module):
             open(os.path.join(
                 self.model_folder,
                 '%s_vocab.pkl' % (self.filename_prefix_1)
-            ))
+            ),'rb')
         )
 
         model_2_vocab = pickle.load(
             open(os.path.join(
                 self.model_folder,
                 '%s_vocab.pkl' % (self.filename_prefix_2)
-            ))
+            ),'rb')
         )
 
         # Word to index mappings
@@ -353,11 +354,12 @@ class GenSenSingle(nn.Module):
     def _load_params(self):
         """Load pretrained params."""
         # Read vocab pickle files
+        print(self.model_folder,self.filename_prefix)
         model_vocab = pickle.load(
             open(os.path.join(
                 self.model_folder,
                 '%s_vocab.pkl' % (self.filename_prefix)
-            ))
+            ),'rb'), encoding='latin1'
         )
 
         # Word to index mappings

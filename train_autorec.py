@@ -74,7 +74,7 @@ def train(model, batch_loader, nb_epochs, patience, batch_input, save_path,
             loss = criterion(outputs, batch["target"])
             loss.backward()
             optimizer.step()
-            loss = loss.data[0]
+            loss = loss.item()
 
             # keep losses in memory
             losses.append(loss)
@@ -153,18 +153,18 @@ def explore_params(params_seq, data="movielens"):
         # for experiments on our data
         elif data == "db_pretrain":
             # pre-train on movielens
-            batch_loader = MlBatchLoader(
-                batch_size=train_params["batch_size"],
-                ratings01=True
-            )
-            print("n movies", batch_loader.n_movies)
-            model = AutoRec(n_movies=batch_loader.n_movies, params=params)
-            create_dir(save_path + "/movielens")
-            train(model, batch_loader=batch_loader, batch_input=train_params["batch_input"],
-                  nb_epochs=train_params["nb_epochs"],
-                  patience=train_params["patience"],
-                  max_num_inputs=train_params["max_num_inputs"],
-                  save_path=save_path + "/movielens")
+            #batch_loader = MlBatchLoader(
+             #   batch_size=train_params["batch_size"],
+              #  ratings01=True
+            #)
+            #print("n movies", batch_loader.n_movies)
+            #model = AutoRec(n_movies=batch_loader.n_movies, params=params)
+            #create_dir(save_path + "/movielens")
+           # train(model, batch_loader=batch_loader, batch_input=train_params["batch_input"],
+           #       nb_epochs=train_params["nb_epochs"],
+            #      patience=train_params["patience"],
+             #     max_num_inputs=train_params["max_num_inputs"],
+              #    save_path=save_path + "/movielens")
             # train on our DB.
             # Re-create model and load it from pre-training folder
             batch_loader = DialogueBatchLoader(sources="ratings", batch_size=64)

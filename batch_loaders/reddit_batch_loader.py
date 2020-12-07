@@ -12,8 +12,8 @@ from utils import tokenize
 
 import sys
 
-reload(sys)
-sys.setdefaultencoding('utf8')
+#reload(sys)
+#sys.setdefaultencoding('utf8')
 
 
 def load_data(path):

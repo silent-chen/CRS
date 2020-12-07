@@ -17,7 +17,7 @@ if __name__ == '__main__':
     parser.add_argument("--model_path")
     parser.add_argument("--save_path")
     parser.add_argument("--beam_size", default=10)
-    parser.add_argument("--n_examples", default=10)
+    parser.add_argument("--n_examples",type=int,  default=10)
     parser.add_argument("--only_best", default="True",
                         help="whether to display all the beam results, or only the best")
     parser.add_argument("--full_dialogue", default="True",
