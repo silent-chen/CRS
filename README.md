@@ -1,12 +1,13 @@
-# movie-dialogue-dev
+# CSE538-final project
 
-This repository contains the code for NeurIPS 2018 paper "Towards Deep Conversational Recommendations" 
-https://arxiv.org/abs/1812.07617
+This repository contains the final project code for CSE538: Natrual language processing. Our topic is "Conversational Recommendation Systemfor Movies Recommendations". This repo is modified on two wonderful git repos. The first is the offical implementation of the 2018 NeurIPS paper "Towards Deep Conversational Recommendations" [1] https://github.com/RaymondLi0/conversational-recommendations. The second is the official implementation of 2019 EMNLP paper "Towards Knowledge-Based Recommender Dialog System" [2]. https://github.com/THUDM/KBRD.
+
+We upgrade to code of the NeurIPS one to python 3 and torch 1.x version and modify the models of the baseline to align the setting of the other EMNLP paper.
 
 ## Requirements
 
-- Python 2.7
-- PyTorch 0.4.1
+- Python=3.6
+- PyTorch >= 1.2
 - tqdm
 - nltk
 - h5py
@@ -14,6 +15,7 @@ https://arxiv.org/abs/1812.07617
 - scikit-learn
 
 ## Usage
+The repo could be split into two part. One is the baseline part the other is the baseline plus transformer and knowledge graph.  To get the baseline result you should follow the below steps
 
 ### Get the data
 Get ReDial data from https://github.com/ReDialData/website/tree/data and Movielens data https://grouplens.org/datasets/movielens/latest/. Note that for the paper we retrieved the Movielens
@@ -90,4 +92,27 @@ It takes real dialogues from the ReDial dataset and lets the model generate resp
 (responses are conditioned on the current dialogue history).
 ```
 python generate_responses.py --model_path=/path/to/models/recommender/model_best --save_path=generations
+```
+
+
+## Reference
+```
+[1]
+@article{li2018towards,
+  title={Towards deep conversational recommendations},
+  author={Li, Raymond and Ebrahimi Kahou, Samira and Schulz, Hannes and Michalski, Vincent and Charlin, Laurent and Pal, Chris},
+  journal={Advances in neural information processing systems},
+  volume={31},
+  pages={9725--9735},
+  year={2018}
+}
+
+[2]
+@inproceedings{chen2019towards,
+  title={Towards Knowledge-Based Recommender Dialog System},
+  author={Chen, Qibin and Lin, Junyang and Zhang, Yichang and Ding, Ming and Cen, Yukuo and Yang, Hongxia and Tang, Jie},
+  booktitle={Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP)},
+  pages={1803--1813},
+  year={2019}
+}
 ```
