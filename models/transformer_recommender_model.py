@@ -27,7 +27,7 @@ class RecommendFromDialogue(nn.Module):
                  n_movies,
                  params,
                  autorec_path=os.path.join(config.AUTOREC_MODEL, "model_best"),
-                 sentiment_analysis_path=os.path.join(config.SENTIMENT_ANALYSIS_MODEL, "model_best"),
+                 sentiment_analysis_path=os.path.join(config.TRANSFORMER_SENTIMENT_ANALYSIS_MODEL, "model_best"),
                  cuda=None,
                  gensen=True, ):
         super(RecommendFromDialogue, self).__init__()
