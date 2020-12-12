@@ -64,7 +64,15 @@ recommender_params = {
 }
 transformer_recommender_params = {
     'decoder_params': decoder_params,
-    'hrnn_params': hrnn_params,
+    'hrnn_params': {
+    'use_movie_occurrences': False,
+    'sentence_encoder_hidden_size': 256,
+    'conversation_encoder_hidden_size': 256,
+    'sentence_encoder_num_layers': 1,
+    'conversation_encoder_num_layers': 1,
+    'use_dropout': False,
+    'use_transformer': True,
+    },
     'recommend_from_dialogue_params': recommend_from_dialogue_params,
     'latent_layer_sizes': None,
     'language_aware_recommender': False,
