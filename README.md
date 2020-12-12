@@ -107,6 +107,7 @@ python generate_responses.py --model_path=/path/to/models/recommender/model_best
 1. We added 'train_transformer_sentiment_analysis.py', 'train_transformer_recommender.py', 'models/transformer_sentiment_analysis.py', 'models/transformer_recommender_model.py' and 'models/transformer.py' in order to train models using transformer.
 2. We modified the code to adapt to updated Pytorch version.
 3. We modified 'config.py' and 'test_params.py' to adjust some parameters.
+4. We reproduced the results 'Towards Knowledge-Based Recommender Dialog System' to compare baseline with knowledge-based recommender system.
 
 ## Reference
 ```
