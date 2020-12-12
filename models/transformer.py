@@ -473,22 +473,6 @@ class HRNN(nn.Module):
           embedding_size=self.out_features,
           ffn_size=self.out_features
         )
-        self.sentence_encoder = nn.GRU(
-            input_size=2048 + (self.params['use_movie_occurrences'] == "word") if self.use_gensen
-            else self.params['embedding_dimension'] + (self.params['use_movie_occurrences'] == "word"),
-            hidden_size=self.params['sentence_encoder_hidden_size'],
-            num_layers=self.params['sentence_encoder_num_layers'],
-            batch_first=True,
-            bidirectional=True
-        )
-        self.conversation_encoder = nn.GRU(
-            input_size=self.params['sentence_encoder_hidden_size'],
-            # concatenation of 2 directions for sentence encoders + sender informations + movie occurences
-            hidden_size=self.params['conversation_encoder_hidden_size'],
-            num_layers=self.params['conversation_encoder_num_layers'],
-            batch_first=True,
-            bidirectional=conv_bidirectional
-        )
         self.conversation_transformer_encoder = TransformerEncoder(
           embedding_size=self.params['sentence_encoder_hidden_size'],
           ffn_size=self.params['conversation_encoder_hidden_size'],
@@ -552,14 +536,6 @@ class HRNN(nn.Module):
         embedded= self.sentence_fc(embedded)
         sentence_representations, encoder_mask = self.sentence_transformer_encoder(embedded, sorted_mask)
         sentence_representations, _ = self.sentence_transformer_decoder(embedded, sentence_representations, encoder_mask)
-        #####packed_sentences = pack_padded_sequence(embedded, sorted_lengths, batch_first=True)
-        # Apply encoder and get the final hidden states
-        #print('before shape = ', packed_sentences.size())
-        #######_, sentence_representations = self.sentence_encoder(packed_sentences)
-        #print('after shape = ', sentence_representations.size())
-        # (2*num_layers, < batch_size * max_conv_length, hidden_size)
-        # Concat the hidden states of the last layer (two directions of the GRU)
-        #######sentence_representations = torch.cat((sentence_representations[-1], sentence_representations[-2]), 1)
         sentence_representations = sentence_representations[:, -1, :]
         #print('sentence_representations size is', sentence_representations.size())
         if self.params['use_dropout']:
@@ -577,6 +553,7 @@ class HRNN(nn.Module):
                 sentence_representations,
                 pad_tensor
             ), 0)
+        
         # print("SENTENCE REP SHAPE",
         #       sentence_representations.data.shape)  # (batch_size * max_conversation_length, 2*hidden_size)
         # Retrieve original sentence order and Reshape to separate conversations
@@ -610,23 +587,23 @@ class HRNN(nn.Module):
         lengths = input_dict["conversation_lengths"]
         #print(lengths)
         #print(sentence_representations.size())
+        representation_sum = torch.sum(sentence_representations, dim=2)
+        conv_mask = (representation_sum != 0)
+        #print(conv_mask)
         sorted_lengths, sorted_idx, rev = sort_for_packed_sequence(lengths, self.cuda_available)
 
         # reorder in decreasing sequence length
         sorted_representations = sentence_representations.index_select(0, sorted_idx)
-        #print('before conversation size = ', sorted_representations.size())
 
-        packed_sequences = pack_padded_sequence(sorted_representations, sorted_lengths, batch_first=True)
-        conversation_representations, last_state = self.conversation_encoder(packed_sequences)
+        encoder_representations, encoder_mask = self.conversation_transformer_encoder(sorted_representations, conv_mask)
+        conversation_representations, _ = self.conversation_transformer_decoder(sorted_representations, encoder_representations, encoder_mask)
 
         # retrieve original order
-        conversation_representations, _ = pad_packed_sequence(conversation_representations, batch_first=True)
         conversation_representations = conversation_representations.index_select(0, rev)
         # print("LAST STATE SHAPE", last_state.data.shape) # (num_layers * num_directions, batch, conv_hidden_size)
-        last_state = last_state.index_select(1, rev)
         if self.params['use_dropout']:
             conversation_representations = self.dropout(conversation_representations)
-            last_state = self.dropout(last_state)
+
         if return_all:
             if not return_sentence_representations:
                 # return the last layer of the GRU for each t.
@@ -636,12 +613,5 @@ class HRNN(nn.Module):
                 # also return sentence representations
                 return conversation_representations, sentence_representations
         else:
-            # get the last hidden state only
-            if self.conv_bidirectional:
-                # Concat the hidden states for the last layer (two directions of the GRU)
-                last_state = torch.cat((last_state[-1], last_state[-2]), 1)
-                # (batch_size, num_directions*hidden_size)
-                return last_state
-            else:
-                # Return the hidden state from the last layers
-                return last_state[-1]
+            return conversation_representations[:, -1, :]
+
