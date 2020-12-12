@@ -15,13 +15,13 @@ We upgrade to code of the NeurIPS one to python 3 and torch 1.x version and modi
 - scikit-learn
 
 ## Usage
-The repo could be split into two part. One is the baseline part the other is the baseline plus transformer and knowledge graph.  To get the baseline result you should follow the below steps
+The repo could be split into two part. One is the baseline part the other is the baseline plus transformer and knowledge graph.  To get the baseline result you should follow the below steps:
 
 ### Get the data
 Get ReDial data from https://github.com/ReDialData/website/tree/data and Movielens data https://grouplens.org/datasets/movielens/latest/. Note that for the paper we retrieved the Movielens
 data set in September 2017. The Movielens latest dataset has been updated since then.
 ```
-git clone https://github.com/RaymondLi0/conversational-recommendations.git
+git clone https://github.com/silent-chen/CRS.git
 cd conversational-recommendations
 pip install -r requirements.txt
 python -m nltk.downloader punkt
@@ -102,6 +102,12 @@ It takes real dialogues from the ReDial dataset and lets the model generate resp
 ```
 python generate_responses.py --model_path=/path/to/models/recommender/model_best --save_path=generations
 ```
+
+### Knowledge graph
+
+We adopt the model implemented by "Towards Knowledge-Based Recommender Dialog System"[2]. This repo provide a pipeline, which could train the baseline model plus the knowledge graph method.
+
+For more details, pls refer to  https://github.com/THUDM/KBRD.
 
 ### Our contributions
 1. We added 'train_transformer_sentiment_analysis.py', 'train_transformer_recommender.py', 'models/transformer_sentiment_analysis.py', 'models/transformer_recommender_model.py' and 'models/transformer.py' in order to train models using transformer.
