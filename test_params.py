@@ -46,13 +46,6 @@ transformer_sentiment_analysis_params = {
         'use_transformer': True,
     }
 }
-transformer_recommender_params = {
-    'decoder_params': decoder_params,
-    'hrnn_params': hrnn_params,
-    'recommend_from_dialogue_params': recommend_from_dialogue_params,
-    'latent_layer_sizes': None,
-    'language_aware_recommender': False,
-}
 autorec_params = {
     'layer_sizes': [1000],
     'f': "sigmoid",
@@ -69,7 +62,13 @@ recommender_params = {
     'latent_layer_sizes': None,
     'language_aware_recommender': False,
 }
-
+transformer_recommender_params = {
+    'decoder_params': decoder_params,
+    'hrnn_params': hrnn_params,
+    'recommend_from_dialogue_params': recommend_from_dialogue_params,
+    'latent_layer_sizes': None,
+    'language_aware_recommender': False,
+}
 # Training parameters
 train_sa_params = {
     "learning_rate": 0.001,
