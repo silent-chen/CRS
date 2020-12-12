@@ -73,7 +73,10 @@ transformer_recommender_params = {
     'use_dropout': False,
     'use_transformer': True,
     },
-    'recommend_from_dialogue_params': recommend_from_dialogue_params,
+    'recommend_from_dialogue_params': {
+      "sentiment_analysis_params": transformer_sentiment_analysis_params,
+      "autorec_params": autorec_params,
+    },
     'latent_layer_sizes': None,
     'language_aware_recommender': False,
 }
