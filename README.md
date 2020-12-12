@@ -85,7 +85,16 @@ python train_autorec.py
 ```
 python train_recommender.py
 ```
-
+- Train sentiment analysis using transformer. This will train a model to predict the movie form labels from ReDial.
+The model will be saved in the `/path/to/models/transformer_sentiment_analysis` folder
+```
+python train_transformer_sentiment_analysis.py
+```
+- Train conversational recommendation model using transformer. This will train the whole conversational recommendation model, using the previously trained models.
+ The model will be saved in the `/path/to/models/transformer_recommender` folder.
+```
+python train_transformer_recommender.py
+```
 ### Generate sentences
 `generate_responses.py` loads a trained model. 
 It takes real dialogues from the ReDial dataset and lets the model generate responses whenever the human recommender speaks
