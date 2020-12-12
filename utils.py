@@ -7,6 +7,14 @@ import time
 
 movie_list = []
 
+NEAR_INF = 1e20
+NEAR_INF_FP16 = 65504
+def neginf(dtype):
+    """Returns a representable finite number near -inf for a dtype."""
+    if dtype is torch.float16:
+        return -NEAR_INF_FP16
+    else:
+        return -NEAR_INF
 
 def create_dir(path):
     if not os.path.exists(path):
