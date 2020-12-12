@@ -34,6 +34,18 @@ sentiment_analysis_params = {
         'use_dropout': 0.4,
     }
 }
+transformer_sentiment_analysis_params = {
+    'hrnn_params': {
+        # whether to add a dimension indicating the occurrence of the movie name in the sentence
+        'use_movie_occurrences': 'word',
+        'sentence_encoder_hidden_size': 512,
+        'conversation_encoder_hidden_size': 512,
+        'sentence_encoder_num_layers': 2,
+        'conversation_encoder_num_layers': 2,
+        'use_dropout': 0.4,
+        'use_transformer': True,
+    }
+}
 autorec_params = {
     'layer_sizes': [1000],
     'f': "sigmoid",
