@@ -6,6 +6,8 @@ path = os.path.dirname(os.path.basename(__file__))
 MODELS_PATH = './models'
 AUTOREC_MODEL = os.path.join(MODELS_PATH, "autorec")
 SENTIMENT_ANALYSIS_MODEL = os.path.join(MODELS_PATH, 'sentiment_analysis')
+TRANSFORMER_SENTIMENT_ANALYSIS_MODEL = os.path.join(MODELS_PATH, 'transformer_sentiment_analysis')
+TRANSFORMER_RECOMMENDER_MODEL = os.path.join(MODELS_PATH, "transformer_recommender")
 RECOMMENDER_MODEL = os.path.join(MODELS_PATH, "recommender")
 # data set path
 REDIAL_DATA_PATH = './redial'
